@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="dist/idangerous.swiper.css">
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="dist/idangerous.swiper.min.js"></script>
+</head>
+  <style>
+/* Demo Syles */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.swiper-container {
+  width:100%;
+  max-width: 640px;
+  min-width: 320px;
+  position: relative;
+}
+
+.swiper-slide,.swiper-slide img{width: 100%;}
+.content-slide {
+  padding: 20px;
+  color: #fff;
+}
+.title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.pagination {
+  position: absolute;
+  left: 0;
+  text-align: center;
+  bottom:5px;
+  width: 100%;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #999;
+  box-shadow: 0px 1px 2px #555 inset;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.swiper-active-switch {
+  background: #fff;
+}
+  </style>
+<body>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<a href="#"><img src="slider1-1.png" alt=""></a>
+			</div>
+			<div class="swiper-slide">
+				<a href="#"><img src="slider1-2.png" alt=""></a>
+			</div>
+			<div class="swiper-slide">
+			    <p class="title">Slide with HTML</p>
+			    <p>You can put any HTML inside of slide with any layout, not only images, even another Swiper!</p>
+			</div>
+		</div>
+		<div class="pagination"></div>
+	</div>
+	<script type="text/javascript">
+		var mySwiper = new Swiper('.swiper-container',{
+		  pagination: '.pagination',
+		  loop:true,
+		  grabCursor: true,
+		  paginationClickable: true
+		});
+		$(".swiper-container").height( $(".swiper-slide img").height() );
+		$(window).on('resize',function(){
+			$(".swiper-container").height( $(".swiper-slide img").height() );
+		});
+	</script>
+</body>
+</html>
