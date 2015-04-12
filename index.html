@@ -67,7 +67,15 @@
 							<div class="cbp_tmicon cbp_tmicon-phone"></div>
 							<div class="cbp_tmlabel">
 								<h2><a href="#">Ricebean black-eyed pea</a></h2>
-								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean black-eyed pea maize eggplant.</p>
+								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber...</p>
+							</div>
+						</li>
+						<li>
+							<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
+							<div class="cbp_tmicon cbp_tmicon-screen"></div>
+							<div class="cbp_tmlabel">
+								<h2><a href="#">Ricebean black-eyed pea</a></h2>
+								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber...</p>
 							</div>
 						</li>
 						<li>
@@ -75,15 +83,7 @@
 							<div class="cbp_tmicon cbp_tmicon-phone"></div>
 							<div class="cbp_tmlabel">
 								<h2><a href="#">Ricebean black-eyed pea</a></h2>
-								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean black-eyed pea maize eggplant.</p>
-							</div>
-						</li>
-						<li>
-							<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
-							<div class="cbp_tmicon cbp_tmicon-phone"></div>
-							<div class="cbp_tmlabel">
-								<h2><a href="#">Ricebean black-eyed pea</a></h2>
-								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean black-eyed pea maize eggplant.</p>
+								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...</p>
 							</div>
 						</li>
 					</ul>
@@ -92,13 +92,72 @@
 				<!--PAGE: write-->
 				<div class="panel" id="write">
 					<input type="text" id="artTitle" placeholder="给日记取个名字吧">
-					<textarea name="content" id="content" cols="30" rows="10"></textarea>
+					<p class="tips">
+						<time id="now">2015年4月12日</time>
+						<span id='where'>上海</span>
+					</p>
+					<textarea name="content" id="content" cols="30" rows="20" placeholder="今天又想说点什么呢?"></textarea>
+					<button id="clc">重写</button>
+					<button id="smt">写好了</button>
+				</div>
+				<!-- PAGE: read -->
+				<div class="panel" id="read">
+					<h4>暮然回首,那人却在,灯火阑珊处...</h4>
+					<!-- 分页 -->
+					<ul class="list" id="itemContainer">
+						<li>
+							<a href="#">Ricebean black-eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean</a>
+						</li>
+						<li>
+							<a href="#">black-eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean black-eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean black-eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean</a>
+						</li>
+						<li>
+							<a href="#">black-eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean black-eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean black-eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean</a>
+						</li>
+						<li>
+							<a href="#">black-eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean eyed pea</a>
+						</li>
+						<li>
+							<a href="#">Ricebean black-eyed pea</a>
+						</li>
+					</ul>
+					<div class="holder"></div>
 				</div>
 			</div>
 			<footer>
-				<a href="#home" class="icon home" data-transition="slide">回家</a>
 				<a href="#write" class="icon pencil" data-transition="invoke">写日记</a>
-				<a href="#prev" class="icon paper" data-transition="invoke">看往事</a>
+				<a href="#home" class="icon home" data-transition="slide">回家</a>
+				<a href="#read" class="icon paper" data-transition="fade">看往事</a>
 			</footer>
 		</div>
 	</div>

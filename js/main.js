@@ -3,7 +3,7 @@ $.afui.useOSThemes=false;
 $(function(){
 	$.afui.clearHistory();
 	$.afui.launch();
-	//swipe
+	//swipe轮播图
 	var mySwiper = new Swiper('.swiper-container',{
 	  pagination: '.pagination',
 	  loop:true,
@@ -17,11 +17,24 @@ $(function(){
 		$(".swiper-container").height( $(".swiper-slide img").height() );
 	});
 
-	// timeline
+	// timeline时间轴
 	$(".cbp_tmtimeline").find('li').hide().show().addClass('animated bounceInUp');
-
-	// panels
-	$(".panel").on('panelload',function(){
-		
-	});
+	//分页
+	
+	$("#read").on({
+		'panelload':function(){
+			$("#itemContainer").find('li').hide();
+			var i=0;
+			var pageTimer=setInterval(function(){
+				$("#itemContainer").find('li').eq(i).show().addClass('animated fadeInUp');
+				i++;
+				if(i>10){
+					clearInterval(pageTimer);
+				}
+			},50);
+		},
+		'panelunload':function(){
+			$("#itemContainer").find('li').hide();
+		}
+	});	
 });
