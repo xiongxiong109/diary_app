@@ -12,10 +12,22 @@
 	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/icons.css">
 	<link rel="stylesheet" type="text/css" href="./lib/af/3.0.0/af.ui.css">
 	<!-- 自定义css -->
+	<!-- animate -->
+	<link rel="stylesheet" href="lib_styles/animate_css/animate.min.css">
+	<!-- swiper css -->
+	<link rel="stylesheet" href="lib_styles/swipe/idangerous.swiper.css">
+	<!-- timeline css -->
+	<link rel="stylesheet" href="lib_styles/jq_timeline_css/default.css">
+	<link rel="stylesheet" href="lib_styles/jq_timeline_css/component.css">
+	<!-- main css -->
+	<link rel="stylesheet" href="css/main.css">
 	<script type="text/javascript" charset="utf-8" src="./lib/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="./lib/af/3.0.0/appframework.ui.min.js"></script>
 	<!-- 自定义js -->
+	<script type="text/javascript" src="lib/jquery-swipe/idangerous.swiper.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-timeline/modernizr.custom.js"></script>
 	<!-- 自定义js中必须要做的事有:取消自动加载，取消操作系统样式，手动加载 -->
+	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 	<div id="afui">
@@ -27,17 +39,67 @@
 		<!--main screen view-->
 		<div class="view" id="mainview">
 			<header>
-				<h1>title</h1>
+				<h1>一路有你</h1>
 			</header>
 			<div class="pages">
 				<!--PAGE:home-->
 				<div class="panel" id="home">
-					至少要有一个panel
-					更多的api可以去参考af的官方破demo
+					<h3 id="app-name">行走日记 v1.0</h3><span id='author'>--Powered By Bear</span>
+					<!-- 轮播图 -->
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="#"><img src="images/swipe/1.jpg" alt=""></a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#"><img src="images/swipe/2.jpg" alt=""></a>
+							</div>
+							<div class="swiper-slide">
+							    <a href="#"><img src="images/swipe/3.jpg" alt=""></a>
+							</div>
+						</div>
+						<div class="pagination"></div>
+					</div>
+					<!-- 时光轴 -->
+					<ul class="cbp_tmtimeline">
+						<li>
+							<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
+							<div class="cbp_tmicon cbp_tmicon-phone"></div>
+							<div class="cbp_tmlabel">
+								<h2><a href="#">Ricebean black-eyed pea</a></h2>
+								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean black-eyed pea maize eggplant.</p>
+							</div>
+						</li>
+						<li>
+							<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
+							<div class="cbp_tmicon cbp_tmicon-phone"></div>
+							<div class="cbp_tmlabel">
+								<h2><a href="#">Ricebean black-eyed pea</a></h2>
+								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean black-eyed pea maize eggplant.</p>
+							</div>
+						</li>
+						<li>
+							<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
+							<div class="cbp_tmicon cbp_tmicon-phone"></div>
+							<div class="cbp_tmlabel">
+								<h2><a href="#">Ricebean black-eyed pea</a></h2>
+								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean black-eyed pea maize eggplant.</p>
+							</div>
+						</li>
+					</ul>
+					<button id="moreBtn">find more</button>
 				</div>
-				<!--PAGE: page1-->
+				<!--PAGE: write-->
+				<div class="panel" id="write">
+					<input type="text" id="artTitle" placeholder="给日记取个名字吧">
+					<textarea name="content" id="content" cols="30" rows="10"></textarea>
+				</div>
 			</div>
-			<footer><a href="#" class="icon home"></a></footer>
+			<footer>
+				<a href="#home" class="icon home" data-transition="slide">回家</a>
+				<a href="#write" class="icon pencil" data-transition="invoke">写日记</a>
+				<a href="#prev" class="icon paper" data-transition="invoke">看往事</a>
+			</footer>
 		</div>
 	</div>
 </body>
