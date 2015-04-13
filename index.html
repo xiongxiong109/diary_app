@@ -102,56 +102,64 @@
 				</div>
 				<!-- PAGE: read -->
 				<div class="panel" id="read">
-					<h4>暮然回首,那人却在,灯火阑珊处...</h4>
+					<h4 id="readTitle">暮然回首,那人却在,灯火阑珊处...</h4>
+					<h4>共有<span id="total"></span>篇尘封的记忆</h4>
 					<!-- 分页 -->
+					<div class="holder"></div>
 					<ul class="list" id="itemContainer">
 						<li>
-							<a href="#">Ricebean black-eyed pea</a>
+							<a href="#readDetail" data-transition="flip">1Ricebean black-eyed pea <time class="diary-time">2015/4/13</time></a>
 						</li>
 						<li>
-							<a href="#">Ricebean</a>
+							<a href="#readDetail" data-transition="flip">2Ricebean</a>
 						</li>
 						<li>
-							<a href="#">black-eyed pea</a>
+							<a href="#readDetail" data-transition="flip">3black-eyed pea</a>
 						</li>
 						<li>
-							<a href="#">Ricebean eyed pea</a>
+							<a href="#readDetail" data-transition="flip">Ricebean eyed pea</a>
 						</li>
 						<li>
-							<a href="#">Ricebean black-eyed pea</a>
+							<a href="#readDetail" data-transition="flip">Ricebean black-eyed pea</a>
 						</li>
 						<li>
-							<a href="#">Ricebean black-eyed pea</a>
+							<a href="#readDetail" data-transition="flip">Ricebean black-eyed pea</a>
 						</li>
 						<li>
-							<a href="#">Ricebean</a>
+							<a href="#readDetail" data-transition="flip">Ricebean</a>
 						</li>
 						<li>
-							<a href="#">black-eyed pea</a>
+							<a href="#readDetail" data-transition="flip">4black-eyed pea</a>
 						</li>
 						<li>
-							<a href="#">Ricebean eyed pea</a>
+							<a href="#readDetail" data-transition="flip">Ricebean eyed pea</a>
 						</li>
 						<li>
-							<a href="#">Ricebean black-eyed pea</a>
+							<a href="#readDetail" data-transition="flip">Ricebean black-eyed pea</a>
 						</li>
 						<li>
-							<a href="#">Ricebean black-eyed pea</a>
+							<a href="#readDetail" data-transition="flip">5Ricebean black-eyed pea</a>
 						</li>
 						<li>
-							<a href="#">Ricebean</a>
+							<a href="#readDetail" data-transition="flip">Ricebean</a>
 						</li>
 						<li>
-							<a href="#">black-eyed pea</a>
+							<a href="#readDetail" data-transition="flip">6black-eyed pea</a>
 						</li>
 						<li>
-							<a href="#">Ricebean eyed pea</a>
+							<a href="#readDetail" data-transition="flip">Ricebean eyed pea</a>
 						</li>
 						<li>
-							<a href="#">Ricebean black-eyed pea</a>
+							<a href="#readDetail" data-transition="flip">8Ricebean black-eyed pea</a>
 						</li>
 					</ul>
-					<div class="holder"></div>
+				</div>
+				<!-- PAGE:detial -->
+				<div class="panel" id="readDetail">
+					<h3 id="detailTitle">6black-eyed pea</h3>
+					<p id="detialNav"><time>2015/04/13</time><span>上海</span></p>
+					<p id="detailContent">Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...</p>
+					<a id="goBack" class="icon left" onclick='$.afui.goBack();'>返回</a>
 				</div>
 			</div>
 			<footer>

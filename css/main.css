@@ -33,3 +33,21 @@
 #now,#where{color: #fff;font-size: 12px;padding-left: 10px;font-family: "微软雅黑"}
 #content{overflow: auto;}
 #write button{width: 48%;border: 0;margin: 2px;padding: 5px 0;border-radius: 5px;background-color:rgba(255,255,255,0.6);border: 1px solid #ccc;font-size: 14px;font-family: "微软雅黑";outline: none;}
+
+/*read*/
+.diary-time{float: right;color: #ddd;font-size: 14px;padding:5px 5px 0 0;}
+#read h4{color:#4765D8;padding: 6px;}
+#read #total{color: #cd0000;}
+/*分页*/
+.holder{font-size: 12px;font-family: "微软雅黑";padding: 4px;text-align: center;width: 100%;}
+.holder a{display: inline-block;color: #000;padding:15px;text-decoration: underline;}
+
+/*详情页*/
+#readDetail{background-color:#F8FF8E;}
+#detailTitle{font-size: 16px;text-align: center;padding: 8px;}
+#detialNav{padding: 5px;color: #555;font-family: "微软雅黑";border-bottom: 1px solid #000;}
+#detialNav time{}
+#detialNav span{padding-left: 8px;}
+#detailContent{color: #319191;border-bottom: 1px dashed #ccc;font-size:16px;text-indent: 2em;}
+#goBack{color: #555;float: right;}
+#goBack.pressed{color: #cd0000;}
