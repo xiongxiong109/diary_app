@@ -67,7 +67,6 @@
 			}
 		}
 	})
-
 })(jQuery);
 
 $.afui.autoLaunch=false;
@@ -116,4 +115,43 @@ $(function(){
 			$("#total").text(0);
 		}
 	});	
+
+	// swipe切换页面
+	$('#home').on({
+		'swipeLeft':function(){
+			$.afui.loadContent('#read',false,false,'flip');
+		},
+		'swipeRight':function(){
+			$.afui.loadContent('#write',false,false,'flip');
+		}
+	});
+	$("#read").on('swipeRight',function(){
+		$.afui.loadContent('#home',false,false,'flip');
+	});
+	$("#write").on('swipeLeft',function(){
+		$.afui.loadContent('#home',false,false,'flip');
+	});
+	//写页面
+	$("#artTitle, #content").on({
+		'focus':function(){
+			$(this).css({
+				"border": '1px solid #00c',
+				"box-shadow": '0px 0px 15px #00c'
+			});
+		},
+		'blur':function(){
+			$(this).css({
+				"border": '1px solid #ccc',
+				"box-shadow": '0px 0px 0px #000'
+			});
+		}
+	});
+	$("#smt").click(function(){
+		if($("#artTitle").val()=='' || $("#content").val()==''){
+			$.afui.popup({
+				title:'且慢~',
+				message:'标题和内容不能为空'
+			});
+		}
+	});
 });

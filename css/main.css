@@ -28,11 +28,12 @@
 
 /*write*/
 #write{background: #ccc url("../images/write.jpg") 0px 0px no-repeat;}
-#artTitle,#content{outline: none;background-color:rgba(255,255,255,0.8);}
+#artTitle,#content{outline: none;background-color:rgba(255,255,255,0.8);-webkit-transition: all 0.5s ease;-moz-transition: all 0.5s ease;-ms-transition: all 0.5s ease;-o-transition: all 0.5s ease;transition: all 0.5s ease;}
 #artTitle{margin-top: 10px;}
 #now,#where{color: #fff;font-size: 12px;padding-left: 10px;font-family: "微软雅黑"}
 #content{overflow: auto;}
 #write button{width: 48%;border: 0;margin: 2px;padding: 5px 0;border-radius: 5px;background-color:rgba(255,255,255,0.6);border: 1px solid #ccc;font-size: 14px;font-family: "微软雅黑";outline: none;}
+#write button.pressed{background-color: #ccc;}
 
 /*read*/
 .diary-time{float: right;color: #ddd;font-size: 14px;padding:5px 5px 0 0;}
