@@ -205,16 +205,18 @@ $(function() {
 			var oHours = date.getHours();
 			var oMins = date.getMinutes();
 			var dairyName = 'dairy' + indexNow;
+			var json=getPosition();//获取地理位置
 			window.localStorage.setItem(dairyName + '-title', $("#artTitle").val());
 			window.localStorage.setItem(dairyName + '-now', $("#now").html());
 			window.localStorage.setItem(dairyName + '-where', $("#where").html());
 			window.localStorage.setItem(dairyName + '-content', $("#content").val());
+			window.localStorage.setItem(dairyName + '-lat',json.lat || 121.4878);
+			window.localStorage.setItem(dairyName + '-lon',json.lon || 31.2491);
 			// 设置具体的时间，用于时光轴
 			window.localStorage.setItem(dairyName + '-clock', oHours + ':' + oMins);
 			//清空
 			$("#artTitle").val('');
 			$("#content").val('');
-			console.log(getPosition());
 			$.afui.popup({
 				title: '写好了~',
 				message: '日记已写好，现在要去查看吗?',
@@ -284,8 +286,12 @@ $(function() {
 
 	function createContent(index) {
 		var str = "";
-		str += "<h3 id='detailTitle'>" + window.localStorage.getItem('dairy' + index + '-' + 'title') + "</h3>" + "<p id='detialNav'>" + "<time>" + window.localStorage.getItem('dairy' + index + '-' + 'now') + "</time>" + "<span>" + window.localStorage.getItem('dairy' + index + '-' + 'where') + "</span>" + "</p>" + "<p id='detailContent'>" + window.localStorage.getItem('dairy' + index + '-' + 'content') + "</p>" + "<a id='goBack' class='icon left' onclick='$.afui.goBack();'>返回</a>" + "<a href='javascript:;' class='icon close' id='del'></a><div id='allmap'></div>";
-		$("#readDetail").html(str);
+		str += "<h3 id='detailTitle'>" + window.localStorage.getItem('dairy' + index + '-' + 'title') + "</h3>" + "<p id='detialNav'>" + "<time>" + window.localStorage.getItem('dairy' + index + '-' + 'now') + "</time>" + "<span>" + window.localStorage.getItem('dairy' + index + '-' + 'where') + "</span>" + "</p>" + "<p id='detailContent'>" + window.localStorage.getItem('dairy' + index + '-' + 'content') + "</p>" + "<a id='goBack' class='icon left' onclick='$.afui.goBack();'>返回</a>" + "<a href='javascript:;' class='icon close' id='del'></a>";
+		$(".content-wrap").html(str);
+		var lat=window.localStorage.getItem('dairy' + index + '-' + 'lat');
+		var lon=window.localStorage.getItem('dairy' + index + '-' + 'lon');
+		// 创建百度地图
+		createMap(lat,lon);
 		$("#del").click(function() {
 			// console.log("index:"+index);
 			// console.log("indexNow:"+indexNow);
@@ -361,37 +367,53 @@ $(function() {
 		}
 	}
 
-	//百度地图获取经纬度
+	//geolocation获取经纬度
 	function getPosition(){
-		// 百度地图API功能
-			var json={}; 
-			var map = new BMap.Map("allmap");
-			var point = new BMap.Point(116.331398,39.897445);
-			map.centerAndZoom(point,12);
-
-			var geolocation = new BMap.Geolocation();
-			geolocation.getCurrentPosition(function(r){
-				if(this.getStatus() == BMAP_STATUS_SUCCESS){
-					var mk = new BMap.Marker(r.point);
-					map.addOverlay(mk);
-					map.panTo(r.point);
-					json.lng=r.point.lng;
-					json.lat=r.point.lat;
-					return json;
-				}
-				else {
-					alert('failed'+this.getStatus());
-				}        
-			},{enableHighAccuracy: true})
-			//关于状态码
-			//BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
-			//BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
-			//BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
-			//BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
-			//BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
-			//BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
-			//BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
-			//BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
-			//BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
+		var lon,lat;
+		var json={};
+		window.navigator.geolocation.getCurrentPosition(function(pos){
+			lon=pos.coords.longitude;
+			lat=pos.coords.latitude;
+			json.lon=lon;
+			json.lat=lat;
+		},function(err){
+			//err.code
+		 switch(err.code){
+              case 0:
+              alert('未知错误');
+              break;
+              case 1:
+              alert('用户拒绝共享位置信息');
+              break;
+              case 2:
+              alert('获取信息失败');
+              break;
+              case 3:
+              alert('响应超时');
+              break;
+              default:
+              alert('获取失败');
+              break;
+          }
+          return false;
+		},{
+     //     configs
+    	 "enableHighAcuracy":true,//使用更高的精确度
+     	 "timeout":5000,//最高响应时间
+     	 "maximumAge":5000//位置缓存时间
+		});
+	return json || false;
+	}
+	// 创建百度地图
+	function createMap(lat,lon){
+		$("#allmap").html('');
+		var map = new BMap.Map("allmap");
+		var point = new BMap.Point(lat,lon);
+		map.centerAndZoom(point,20);
+		var marker = new BMap.Marker(point);
+		map.addOverlay(marker);
+		var infoWindow = new BMap.InfoWindow("我在这里");  // 创建信息窗口对象
+		map.openInfoWindow(infoWindow,point); //开启信息窗口
+		marker.setAnimation(BMAP_ANIMATION_BOUNCE);//弹跳的marker
 	}
 });
