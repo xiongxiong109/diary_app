@@ -26,6 +26,7 @@
 	<!-- 自定义js -->
 	<script type="text/javascript" src="lib/jquery-swipe/idangerous.swiper.min.js"></script>
 	<script type="text/javascript" src="lib/jquery-timeline/modernizr.custom.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=EGxIrz9TvQmugR5wT2ZV6os7"></script>
 	<!-- 自定义js中必须要做的事有:取消自动加载，取消操作系统样式，手动加载 -->
 	<script type="text/javascript" src="js/main.js"></script>
 </head>
@@ -63,28 +64,7 @@
 					<!-- 时光轴 -->
 					<ul class="cbp_tmtimeline">
 						<li>
-							<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
-							<div class="cbp_tmicon cbp_tmicon-phone"></div>
-							<div class="cbp_tmlabel">
-								<h2><a href="#">Ricebean black-eyed pea</a></h2>
-								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber...</p>
-							</div>
-						</li>
-						<li>
-							<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
-							<div class="cbp_tmicon cbp_tmicon-screen"></div>
-							<div class="cbp_tmlabel">
-								<h2><a href="#">Ricebean black-eyed pea</a></h2>
-								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber...</p>
-							</div>
-						</li>
-						<li>
-							<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
-							<div class="cbp_tmicon cbp_tmicon-phone"></div>
-							<div class="cbp_tmlabel">
-								<h2><a href="#">Ricebean black-eyed pea</a></h2>
-								<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...</p>
-							</div>
+							<h3 id="nav">暂时没有时光轴的内容,先写点什么吧?</h3>
 						</li>
 					</ul>
 					<button id="moreBtn">find more</button>
@@ -93,12 +73,14 @@
 				<div class="panel" id="write">
 					<input type="text" id="artTitle" placeholder="给日记取个名字吧">
 					<p class="tips">
-						<time id="now">2015年4月12日</time>
-						<span id='where'>上海</span>
+						<time id="now">在何时</time>
+						<span id='where'><a class="icon location"></a>走天涯</span>
 					</p>
 					<textarea name="content" id="content" cols="30" rows="20" placeholder="今天又想说点什么呢?"></textarea>
 					<button id="clc">重写</button>
 					<button id="smt">写好了</button>
+					<!-- 百度地图容器 -->
+					<div id="allmap"></div>
 				</div>
 				<!-- PAGE: read -->
 				<div class="panel" id="read">
@@ -106,61 +88,10 @@
 					<h4>共有<span id="total"></span>篇尘封的记忆</h4>
 					<!-- 分页 -->
 					<div class="holder"></div>
-					<ul class="list" id="itemContainer">
-						<li>
-							<a href="#readDetail" data-transition="flip">1Ricebean black-eyed pea <time class="diary-time">2015/4/13</time></a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">2Ricebean</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">3black-eyed pea</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">Ricebean eyed pea</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">Ricebean black-eyed pea</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">Ricebean black-eyed pea</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">Ricebean</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">4black-eyed pea</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">Ricebean eyed pea</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">Ricebean black-eyed pea</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">5Ricebean black-eyed pea</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">Ricebean</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">6black-eyed pea</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">Ricebean eyed pea</a>
-						</li>
-						<li>
-							<a href="#readDetail" data-transition="flip">8Ricebean black-eyed pea</a>
-						</li>
-					</ul>
+					<ul class="list" id="itemContainer"></ul>
 				</div>
 				<!-- PAGE:detial -->
-				<div class="panel" id="readDetail">
-					<h3 id="detailTitle">6black-eyed pea</h3>
-					<p id="detialNav"><time>2015/04/13</time><span>上海</span></p>
-					<p id="detailContent">Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress...</p>
-					<a id="goBack" class="icon left" onclick='$.afui.goBack();'>返回</a>
-				</div>
+				<div class="panel" id="readDetail"></div>
 			</div>
 			<footer>
 				<a href="#write" class="icon pencil" data-transition="invoke">写日记</a>

@@ -21,6 +21,7 @@
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child{color: #919191;background-color:rgba(255,255,255,0.8);}
 .cbp_tmtimeline > li .cbp_tmtime span:last-child{color: #fff;background-color: rgba(0,0,0,0.5);}
 .cbp_tmtimeline > li .cbp_tmlabel h2,.cbp_tmtimeline > li .cbp_tmlabel h2 a{color: #1B1F20;}
+#nav{text-align: center;background-color:rgba(255,255,255,0.5);}
 
 /*more*/
 #moreBtn{border: none;width: 80%;height: 40px;line-height: 40px;text-align: center;display:block;margin: auto;background-color:rgba(255,255,255,0.3);border: 1px solid #fff;border-radius: 5px;color: #555;font-weight: bold;outline: none;}
@@ -52,3 +53,4 @@
 #detailContent{color: #319191;border-bottom: 1px dashed #ccc;font-size:16px;text-indent: 2em;}
 #goBack{color: #555;float: right;}
 #goBack.pressed{color: #cd0000;}
+#del{color: #cd0000;position: absolute;right: 15px;top: 40px;}
